@@ -1,23 +1,95 @@
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
   }
   
   @media (max-width: 1000px) {
     .image {
-      background-image: url('cullan-smith-BdTtvBRhOng-unsplash.jpg');
-      height: 100vh;
-      background-size: 500px;
+      background-image: url('media query/Media1.jpg');
+      height: 90vh;
+      background-size: 100px;
       background-repeat: no-repeat;
       background-position: 50% 50%;
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     .image {
-      background-image: url('NTur7XlVDUdqM.webp');
-      height: 100vh;
-      background-size: 500px;
+      background-image: url('media query/media2.jpg');
+      height: 90vh;
+      background-size: 100px;
       background-repeat: no-repeat;
       background-position: 50% 50%;
     }
   }
+
+  @media (max-width: 800px) {
+    .image {
+      background-image: url('media query/media3.jpg');
+      height: 90vh;
+      background-size: 100px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+
+    @media (max-width: 700px) {
+      .image {
+        background-image: url('media query/media4.jpg');
+        height: 90vh;
+        background-size: 100px;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+      }
+
+      @media (max-width: 600px) {
+        .image {
+          background-image: url('media query/media5.jpg');
+          height: 90vh;
+          background-size: 100px;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+        }
+
+        @media (max-width: 500px) {
+          .image {
+            background-image: url('media query/media6.jpg');
+            height: 70vh;
+            background-size: 100px;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+          }
+
+          @media (max-width: 400px) {
+            .image {
+              background-image: url('media query/media7.jpg');
+              height: 70vh;
+              background-size: 100px;
+              background-repeat: no-repeat;
+              background-position: 50% 50%;
+            }
+
+            @media (max-width: 300px) {
+              .image {
+                background-image: url('media query/media8.jpg');
+                height: 90vh;
+                background-size: 100px;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+              }
+
+              @media (max-width: 200px) {
+                .image {
+                  background-image: url('media query/media9.jpg');
+                  height: 90vh;
+                  background-size: 100px;
+                  background-repeat: no-repeat;
+                  background-position: 50% 50%;
+                }
+
+                @media (max-width: 100px) {
+                  .image {
+                    background-image: url('media query/media10.jpg');
+                    height: 90vh;
+                    background-size: 100px;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                  }
