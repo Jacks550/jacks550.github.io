@@ -1,0 +1,86 @@
+body{
+  background:#088F8F;
+  margin: 0px;
+}
+h1{
+  margin:30px;
+  font-size: 7.5vh;
+  color: #FDDA0D;
+  font-family: Arial, Helvetica, sans-serif;
+  position:absolute;
+  bottom:245px;
+  right:40px;
+}
+
+h2{
+  margin:40px;
+  font-size: 3vh;
+  color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+  position:absolute;
+  bottom:-8px;
+  right:35px;
+}
+
+h3 {
+  margin:40px;
+  font-size: 3vh;
+  color: yellow;
+  font-family: Arial, Helvetica, sans-serif;
+  position:absolute;
+  bottom:8px;
+  right:35px;
+  
+}
+
+h4 {
+  margin:29px;
+  font-size: 2.6vh;
+  color: #FFAA33;
+  font-family: Arial, Helvetica, sans-serif;
+  position:absolute;
+  bottom:-25px;
+  right:28px;
+}
+
+h5 {
+  margin:29px;
+  font-size: 3vh;
+  color: #FFAA33;
+  font-family: Arial, Helvetica, sans-serif;
+  position:absolute;
+  bottom:240px;
+  right:3px;
+}
+
+
+.circle{
+  width:40vh;
+  height: 40vh;
+  background:#FF5733;
+  border-radius:60%;
+  position:absolute;
+  bottom:90px;
+  right:60px;
+  opacity:.2;
+}
+
+.seccircle{ width:40vh;
+  height: 40vh;
+  background:#FF5733;
+  border-radius:60%;
+  position:absolute;
+  bottom:100px;
+  right:120px;
+  opacity:.3;
+}
+
+.thirdcircle{ width:40vh;
+  height: 40vh;
+  background:#FF5733;
+  border-radius:60%;
+  position:absolute;
+  bottom:100px;
+  right:5px;
+  opacity:.4;
+}
