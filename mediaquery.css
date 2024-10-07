@@ -2,7 +2,7 @@ body {
     background-color: rgb(255, 255, 255);
   }
   
-  @media (max-width: 4000px) {
+  @media (max-width: 2100px) {
     .image {
       background-image: url('media query/Media1.jpg');
       height: 90vh;
