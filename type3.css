@@ -12,6 +12,10 @@ body {
     align-items: center;
 }
 
+.container:hover {
+    transform: scale(3);
+}
+
 .vertical-rectangle {
     width: 100px;        
     height: 300px;       
