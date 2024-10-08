@@ -75,12 +75,11 @@ h5 {
   right:60px;
   opacity: 0.1;
 
-.hover-blur {
-	width: 40vh;
+  .hover-blur {
+    width: 40vh;
 }
 .hover-blur:hover {
-  filter:blur(20px);
-}
+    filter: blur(80px);
 }
 
 .seccircle{ width:40vh;
@@ -92,6 +91,10 @@ h5 {
   right:120px;
   opacity:.1;
 }
+
+.seccircle:hover{
+    background-color:rgb(255, 0, 179)
+  }
 
 .thirdcircle{ width:40vh;
   height: 40vh;

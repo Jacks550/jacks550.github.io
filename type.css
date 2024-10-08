@@ -1,8 +1,12 @@
-.container {
-    display: grid;
-    grid-template-columns: 25% auto;
-    column-gap: 10px;
-  }
-  
+body{
+    background:#30ff91;
+    margin: 0px;
+}
 
-  
+  .letter {
+    width: 100px;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
