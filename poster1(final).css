@@ -65,22 +65,17 @@ h5 {
   width:60vh; /* This is in "vh" units because we always want it to be relative to the height. In this case, it's a 3:5 ratio (60:100) */
 }
 
-.circle{
-  width:40vh;
-  height: 40vh;
-  background:blue;
-  border-radius:60%;
-  position:absolute;
-  bottom:90px;
-  right:60px;
-  opacity: 0.1;
-
-  .hover-blur {
-    width: 40vh;
+.circle { 
+    width:40vh;
+    height: 40vh;
+    background:blue;
+    border-radius:60%;
+    position:absolute;
+    bottom:90px;
+    right:60px;
+    opacity: 0.1;
 }
-.hover-blur:hover {
-    filter: blur(80px);
-}
+ 
 
 .seccircle{ width:40vh;
   height: 40vh;
