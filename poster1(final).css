@@ -75,6 +75,10 @@ h5 {
     right:60px;
     opacity: 0.1;
 }
+
+.circle:hover{
+    background-color:rgb(255, 0, 179)
+  }
  
 
 .seccircle{ width:40vh;
@@ -101,6 +105,10 @@ h5 {
   opacity: 0.1
 }
 
+.thirdcircle:hover{
+    background-color:rgb(255, 0, 179)
+  }
+
 pre {
     font-family:'Courier New';
     font-weight: bold;
@@ -112,5 +120,4 @@ pre {
     display: flex;
     opacity: 0.6;
               
-
 }
