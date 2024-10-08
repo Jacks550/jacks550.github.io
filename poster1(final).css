@@ -74,6 +74,13 @@ h5 {
   bottom:90px;
   right:60px;
   opacity: 0.1;
+
+.hover-blur {
+	width: 40vh;
+}
+.hover-blur:hover {
+  filter:blur(20px);
+}
 }
 
 .seccircle{ width:40vh;
