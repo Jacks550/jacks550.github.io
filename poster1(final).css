@@ -1,6 +1,10 @@
 body{
-  background:#c77fbd;
-  margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:#c77fbd;
+    margin: 0px;
 }
 
 h1{
@@ -127,7 +131,7 @@ pre {
   align-items: center;
   justify-items: center;
   width: 100vw;
-  height: 100vh:
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;

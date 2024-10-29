@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marigold Flower</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000; 
+            margin: 0;
+        }
+        .flower {
+            position: relative;
+            width: 120px;  
+            height: 120px; 
+            top: -30px; 
+        }
+        .center {
+            position: absolute;
+            width: 40px;   
+            height: 40px;  
+            background-color: #05aa0a; 
+            border-radius: 50%; 
+            top: 88px; 
+            left: 38px; 
+            z-index: 1; /* Ensure it is on top of petals */
+            box-shadow: 0px 0px 10px rgb(237, 255, 119);
+        }
+        .petal {
+            position: absolute;
+            width: 35px; 
+            height: 80px; 
+            border-radius: 50px 50px 0 0; 
+            transform-origin: bottom center; /* Anchor for rotation */
+            box-shadow: 0px 0px 10px rgb(255, 255, 118); 
+        }
+        .petal1 {
+            top: 0;  
+            left: 40px;  
+            background-color: #dcf900; 
+            transform: rotate(0deg);
+        }
+        .petal2 {
+            top: 20px;   
+            left: 80px;
+            background-color: #e6fc53; 
+            transform: rotate(60deg); 
+        }
+        .petal3 {
+            top: 20px;   
+            left: 0;
+            background-color: #deff58; 
+            transform: rotate(290deg); 
+        }
+
+        .petal4 {
+            top: 20px;   
+            left: 0;
+            background-color: #deff58; 
+            transform: rotate(288deg); 
+        }
+
+        .petal5 {
+            top: 20px;   
+            left: 0;
+            background-color: #deff58; 
+            transform: rotate(288deg); 
+        }
+
+        .stem {
+            position: absolute; 
+            width: 7%;
+            height: 100px;
+            background-color: #05aa0a; 
+            top: 135px; 
+            left: 53px; 
+            box-shadow: 0px 0px 10px rgb(255, 243, 81);
+    
+        }
+
+        .text {
+            position: absolute; 
+            color: #0a8e0f; 
+            font-size: 30px;
+            font-family:Arial, Helvetica, sans-serif;
+            bottom: 220px; 
+            right: 5px; 
+        
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flower">
+        <div class="center"></div> <!-- Green center circle -->
+        <div class="petal petal1"></div>
+        <div class="petal petal2"></div>
+        <div class="petal petal3"></div>
+        <div class="petal petal4"></div>
+        <div class="petal petal5"></div>
+        <div class="stem"></div>
+    </div>
+    <div class="text">BROOKLYN 
+        <br>
+        BOTANICAL
+        <br>
+        GARDEN</div> 
+
+    <script>
+        // Function to generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Select all petals
+        const petals = document.querySelectorAll('.petal');
+
+        // Assign a random color to each petal
+        petals.forEach(petal => {
+            petal.style.backgroundColor = getRandomColor();
+        });
+    </script>
+
+</body>
+</html>
+
+
