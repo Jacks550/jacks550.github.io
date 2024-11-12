@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-shaped Flower</title>
+    <style>
+        /* Default light mode styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .flower-container {
+            position: relative;
+        }
+
+        .stem {
+            width: 7px;
+            height: 79px;
+            background-color: green;
+            margin: 0 auto;
+        }
+
+        .flower {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .petal {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            transform: rotate(45deg);
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%, 50% 50%);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .petal-1 {
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .petal-2 {
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        .petal-3 {
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        .petal-4 {
+            transform: translateX(-50%) rotate(270deg);
+        }
+
+        .text {
+            position: absolute; 
+            color: #0a8e0f; 
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            bottom: -3px; 
+            right: -77px;
+            transition: color 0.3s;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #2e2e2e;
+            color: white;
+        }
+
+        .flower-container.dark-mode .stem {
+            background-color: #4caf50; /* Green stem for dark mode */
+        }
+
+        .flower-container.dark-mode .petal {
+            background-color: #fff;
+        }
+
+        .flower-container.dark-mode .text {
+            color: #a8e6cf; /* Light text for dark mode */
+        }
+
+        /* Toggle button styling */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .toggle-btn:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <div class="flower-container">
+        <div class="stem"></div>
+        <div class="flower">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+        </div>
+
+        <div class="text">Brooklyn 
+            <br>
+            Botanical
+            <br>
+            Garden</div> 
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const petals = document.querySelectorAll('.petal');
+        petals.forEach(petal => {
+            petal.style.backgroundColor = getRandomColor();
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

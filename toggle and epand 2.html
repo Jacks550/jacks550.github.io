@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X-shaped Flower</title>
+    <style>
+        /* Default light mode styles */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .flower-container {
+            position: relative;
+            transition: transform 0.3s ease, scale 0.3s ease;
+        }
+
+        .stem {
+            width: 7px;
+            height: 79px;
+            background-color: green;
+            margin: 0 auto;
+            transition: height 0.3s ease;
+        }
+
+        .flower {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        .petal {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            transform: rotate(45deg);
+            clip-path: polygon(0% 0%, 100% 50%, 0% 100%, 50% 50%);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+        }
+
+        .petal-1 {
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .petal-2 {
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        .petal-3 {
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        .petal-4 {
+            transform: translateX(-50%) rotate(270deg);
+        }
+
+        .text {
+            position: absolute;
+            color: #0a8e0f;
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            bottom: -3px;
+            right: -77px;
+            transition: transform 0.3s ease, font-size 0.3s ease;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #2e2e2e;
+            color: white;
+        }
+
+        .flower-container.dark-mode .stem {
+            background-color: #4caf50;
+        }
+
+        .flower-container.dark-mode .petal {
+            background-color: #fff;
+        }
+
+        .flower-container.dark-mode .text {
+            color: #a8e6cf;
+        }
+
+        /* Slider toggle styling */
+        .toggle-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 50px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+        }
+
+        input:checked + .slider {
+            background-color: #4caf50;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Slider Toggle -->
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" onchange="toggleDarkMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="flower-container" onclick="expandLogo(event)">
+        <div class="stem"></div>
+        <div class="flower">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+        </div>
+
+        <div class="text">Brooklyn 
+            <br>
+            Botanical
+            <br>
+            Garden</div> 
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const petals = document.querySelectorAll('.petal');
+        petals.forEach(petal => {
+            petal.style.backgroundColor = getRandomColor();
+        });
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function expandLogo(event) {
+            const flowerContainer = event.currentTarget;
+
+            // Check if the logo is already expanded
+            const isExpanded = flowerContainer.classList.contains('expanded');
+            
+            if (isExpanded) {
+                flowerContainer.classList.remove('expanded');
+                flowerContainer.style.transform = 'scale(1)';
+                flowerContainer.querySelector('.text').style.transform = 'scale(1)';
+                flowerContainer.querySelector('.text').style.fontSize = '18px';
+                flowerContainer.querySelectorAll('.petal').forEach(petal => {
+                    petal.style.width = '60px';
+                    petal.style.height = '60px';
+                    petal.style.transform = petal.style.transform.replace('scale(1.5)', '');
+                });
+            } else {
+                flowerContainer.classList.add('expanded');
+                flowerContainer.style.transform = 'scale(1.5)';
+                flowerContainer.querySelector('.text').style.transform = 'scale(1.5)';
+                flowerContainer.querySelector('.text').style.fontSize = '27px';
+                flowerContainer.querySelectorAll('.petal').forEach(petal => {
+                    petal.style.width = '90px';
+                    petal.style.height = '90px';
+                    petal.style.transform = petal.style.transform + ' scale(1.5)';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
