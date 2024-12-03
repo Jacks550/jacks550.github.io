@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Ticking Clock Tree</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+  </style>
+</head>
+<body>
+  <script>
+    let angle;
+    let branchLength = 10; // Initial branch length
+    let lastSecond = -1; // Tracks the last second to detect changes
+
+    function setup() {
+      createCanvas(windowWidth, windowHeight); // Make the canvas full-screen
+      colorMode(HSB);
+      angleMode(DEGREES);
+      textAlign(CENTER, CENTER); // Center-align text for the clock
+      textSize(32); // Set the font size for the clock
+    }
+
+    function draw() {
+      background(0);
+
+      // Calculate the angle based on the mouse position, maximum 90 degrees
+      angle = (mouseX / width) * 90;
+      angle = min(angle, 90);
+
+      // Check if the second has changed
+      if (second() !== lastSecond) {
+        lastSecond = second(); // Update lastSecond to the current second
+
+        // Reset branch length at the start of each minute
+        if (lastSecond === 0) {
+          branchLength = 10; // Reset to the initial length
+        } else {
+          branchLength += 10; // Increase branch length by 10 pixels per second
+        }
+      }
+
+      // Draw the digital clock
+      drawClock();
+
+      // Start the tree from the bottom of the screen
+      translate(width / 2, height);
+
+      // Draw a line representing the initial trunk
+      stroke(0, 255, 255);
+      line(0, 0, 0, -branchLength);
+
+      // Move to the end of that line
+      translate(0, -branchLength);
+
+      // Start the recursive branching
+      branch(branchLength, 0);
+
+      describe(
+        'A tree drawn by recursively drawing branches, resetting every minute, with a ticking digital clock displayed at the top of the tree.'
+      );
+    }
+
+    function branch(h, level) {
+      // Set the hue based on the recursion level
+      stroke(level * 25, 255, 255);
+
+      // Each branch will be 2/3 the size of the previous one
+      h *= 0.66;
+
+      // Draw if our branch length > 2, otherwise stop the recursion
+      if (h > 2) {
+        // Draw the right branch
+        push();
+        rotate(angle);
+        line(0, 0, 0, -h);
+        translate(0, -h);
+        branch(h, level + 1);
+        pop();
+
+        // Draw the left branch
+        push();
+        rotate(-angle);
+        line(0, 0, 0, -h);
+        translate(0, -h);
+        branch(h, level + 1);
+        pop();
+      }
+    }
+
+    function drawClock() {
+      // Get the current time in 12-hour format
+      let rawHours = hour();
+      let hours = rawHours % 12 || 12; // Convert 0 to 12 for AM/PM format
+      let minutes = nf(minute(), 2); // Format minutes to 2 digits
+      let seconds = nf(second(), 2); // Format seconds to 2 digits
+      let period = rawHours >= 12 ? "PM" : "AM"; // Determine AM or PM
+      let clockText = `${hours}:${minutes}:${seconds} ${period}`;
+
+      // Draw a semi-transparent rectangle behind the clock for better visibility
+      let boxWidth = 200; // Adjusted width for clock text
+      let boxHeight = 50; // Adjusted height for clock text
+      let centerX = width / 2; // Center x-coordinate
+      let topY = 70; // Position 70px from the top edge
+
+      noStroke();
+      fill(0, 0, 0, 150); // Black background with 150 alpha
+      rect(centerX - boxWidth / 2, topY - boxHeight / 2, boxWidth, boxHeight); // Centered rectangle
+
+      // Set the color of the text to white
+      fill(255); // White color
+      text(clockText, centerX, topY); // Draw clock text centered
+    }
+
+    // Resize the canvas when the browser window is resized
+    function windowResized() {
+      resizeCanvas(windowWidth, windowHeight);
+    }
+  </script>
+</body>
+</html>
